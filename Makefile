@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: badal-la <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: student <student@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:02:33 by badal-la          #+#    #+#              #
-#    Updated: 2025/02/18 11:15:08 by badal-la         ###   ########.fr        #
+#    Updated: 2025/02/28 12:52:06 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ GNL_FILES 	= $(GNL_PATH)get_next_line_bonus.c $(GNL_PATH)get_next_line_utils_bon
 MLX_PATH 	= minilibx-linux/
 MLX_FILE 	= $(MLX_PATH)libmlx.a
 
-MLX_FLAGS 	= -L/usr/X11R6/lib -lX11 -lXext
+MLX_FLAGS 	= -L$(MLX_PATH) -lmlx -L/usr/X11R6/lib -lX11 -lXext
 
 SRC 	=	$(wildcard src/*.c) $(GNL_FILES)
 OBJ 	=	$(patsubst %.c,%.o,$(SRC))
