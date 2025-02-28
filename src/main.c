@@ -6,7 +6,7 @@
 /*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:17:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/02/27 17:56:39 by badal-la         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:26:35 by badal-la         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,16 +265,6 @@ void	init_mlx(t_mlx *mlx, t_map *map)
 	mlx->tile_size = TILE_SIZE;
 	mlx->width_win = (map->width - 1) * mlx->tile_size;
 	mlx->height_win = map->height * mlx->tile_size;
-	if (mlx->width_win > screen_width || mlx->height_win > screen_height)
-	{
-		mlx->tile_size = screen_width / (map->width - 1);
-		if (mlx->tile_size > screen_height / map->height)
-			mlx->tile_size = screen_height / map->height;
-		if (mlx->tile_size < 32)
-			mlx->tile_size = 32;
-		mlx->width_win = (map->width - 1) * mlx->tile_size;
-		mlx->height_win = map->height * mlx->tile_size;
-	}
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, \
 								mlx->width_win, mlx->height_win, "So Long");
 	if (!mlx->win_ptr)
