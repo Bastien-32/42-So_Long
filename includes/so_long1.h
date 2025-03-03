@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: badal-la <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 19:10:30 by badal-la          #+#    #+#             */
-/*   Updated: 2025/03/03 19:12:06 by badal-la         ###   ########.fr       */
+/*   Created: 2025/02/03 15:32:48 by badal-la          #+#    #+#             */
+/*   Updated: 2025/03/03 14:16:44 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -165,5 +164,6 @@ void	draw_background(t_mlx *mlx);
 void	draw_map(t_mlx *mlx, t_map *map);
 void	draw_level_done(t_mlx *mlx);
 void	print_player_and_count_moves(t_mlx *mlx, int x, int y, int move);
+void	print_map(t_mlx *mlx, t_map *map);
 
 #endif
