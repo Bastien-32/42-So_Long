@@ -6,7 +6,7 @@
 #    By: student <student@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 15:02:33 by badal-la          #+#    #+#              #
-#    Updated: 2025/02/28 12:52:06 by student          ###   ########.fr        #
+#    Updated: 2025/03/03 16:41:02 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,5 @@ fclean: clean
 	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
-
-test: $(NAME)
-	./$(NAME) map/2exit.ber
 
 .PHONY: all clean fclean re test

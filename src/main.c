@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:17:19 by badal-la          #+#    #+#             */
-/*   Updated: 2025/02/28 17:46:33 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:19:24 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void	init_mlx(t_mlx *mlx, t_map *map)
 	mlx->width_win = (map->width - 1) * mlx->tile_size;
 	mlx->height_win = map->height * mlx->tile_size;
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, \
-								mlx->width_win, mlx->height_win, "So Long");
+						mlx->width_win, mlx->height_win, "So Long - Badal-la");
 	if (!mlx->win_ptr)
 		error("Window creation failed!");
 	mlx->map = map;
+	find_player(mlx, map);
+	init_keymap(&mlx->keys);
 }
 
 int	main(int argc, char **argv)
@@ -38,16 +40,16 @@ int	main(int argc, char **argv)
 	t_mlx	mlx;
 
 	if (argc != 2)
-		error("Usage : ./so_long [nameofmap.ber]\n");
+		error("Usage : ./so_long [nameofmap.ber]");
 	check_file(argv[1]);
 	map = parse_map(argv[1]);
 	check_map(map);
 	init_mlx(&mlx, map);
-	print_map(&mlx, map);
+	load_images(&mlx);
+	draw_map(&mlx, map);
 	mlx_hook(mlx.win_ptr, 2, 1L << 0, keypress, &mlx);
 	mlx_hook(mlx.win_ptr, 17, 1L << 17, close_window, &mlx);
 	mlx_hook(mlx.win_ptr, 12, 1L << 15, reduce_window, &mlx);
 	mlx_loop(mlx.mlx_ptr);
-	free(map);
 	return (0);
 }

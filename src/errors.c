@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 11:21:21 by badal-la          #+#    #+#             */
-/*   Updated: 2025/02/28 11:39:17 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 14:05:50 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	error_fd_open(char *msg, int fd, char *line, t_map *map)
 
 void	error_fd(char *msg, t_map *map)
 {
-		free(map);
-		error(msg);
+	free(map);
+	error(msg);
 }
 
 void	free_args_and_exit(t_map *map, char *msg)

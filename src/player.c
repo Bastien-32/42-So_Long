@@ -6,12 +6,11 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 16:05:43 by student           #+#    #+#             */
-/*   Updated: 2025/02/28 17:37:10 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 14:06:40 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	find_player(t_mlx *mlx, t_map *map)
 {
@@ -61,6 +60,6 @@ void	move_player(t_mlx *mlx, int dx, int dy)
 	mlx->player_y = new_y;
 	if (mlx->map->line[new_y][new_x] != 'E')
 		mlx->map->line[new_y][new_x] = 'P';
-	print_map(mlx, mlx->map);
+	draw_map(mlx, mlx->map);
 	print_player_and_count_moves(mlx, new_x, new_y, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:41:06 by student           #+#    #+#             */
-/*   Updated: 2025/02/28 15:49:48 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 15:19:30 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	check_file(char *file)
 
 	len = ft_strlen(file);
 	if (len < 4)
-		error("File name too short\n");
+		error("File name too short");
 	if (file[len - 1] != 'r' || file[len - 2] != 'e' || file[len - 3] != 'b' \
 													|| file[len - 4] != '.')
-		error("File extension must be .ber\n");
+		error("File extension must be .ber");
 }
 
 void	check_walls(t_map *map)
@@ -35,14 +35,14 @@ void	check_walls(t_map *map)
 	{
 		if (map->line[0][x] != '1' || map->line[map->height - 1][x] != '1')
 			free_args_and_exit(map, \
-									"The map isn't closed unically by walls!");
+						"The border of the map must contain only walls (1)!");
 		x++;
 	}
 	while (y < map->height - 1)
 	{
 		if (map->line[y][0] != '1' && map->line[y][map->width -1] != '1')
 			free_args_and_exit(map, \
-									"The map isn't closed unically by walls!");
+						"The border of the map must contain only walls (1)!");
 		y++;
 	}
 }
@@ -61,7 +61,7 @@ void	check_inside_map(t_map *map)
 			if (map->line[y][x] != '0' && map->line[y][x] != '1' \
 				&& map->line[y][x] != 'C' && map->line[y][x] != 'E' \
 				&& map->line[y][x] != 'P')
-				free_args_and_exit(map, "Invalid character in map");
+				free_args_and_exit(map, "Fill map only with 01CEP characters");
 			if (map->line[y][x] == 'E')
 				map->e++;
 			if (map->line[y][x] == 'P')
@@ -73,7 +73,7 @@ void	check_inside_map(t_map *map)
 		y++;
 	}
 	if (map->e != 1 || map->p != 1 || map->c < 1)
-		free_args_and_exit(map, "Invalid number of elements");
+		free_args_and_exit(map, "Fill map with 0, 1E, 1P and at least 1C");
 }
 
 char	**duplicate_map(t_map *map)

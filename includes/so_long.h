@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:32:48 by badal-la          #+#    #+#             */
-/*   Updated: 2025/02/28 17:38:33 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 14:16:44 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,19 @@
 # define BACKGROUND_COLOR 0xFFFFFF
 
 // Init keyboard on apple(french) keyboard or linux(english) keyboard
-#ifdef __APPLE__
-	# define KEY_UP 65362
-	# define KEY_DOWN 65364
-	# define KEY_LEFT 65361
-	# define KEY_RIGHT 65363
-#else
-	# define KEY_UP 119
-	# define KEY_DOWN 115
-	# define KEY_LEFT 97
-	# define KEY_RIGHT 100
-#endif
+//apple use arrow cases
+//linux use WSAD
+/* #ifdef __APPLE__
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
+#else */
+# define KEY_UP 119
+# define KEY_DOWN 115
+# define KEY_LEFT 97
+# define KEY_RIGHT 100
+/* #endif */
 
 typedef struct s_map
 {
@@ -54,29 +56,6 @@ typedef struct s_map
 	int		p_to_e;
 }			t_map;
 
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		img_width;
-	int		img_height;
-	void	*img_door_closed;
-	void	*img_door_closed_player;
-	void	*img_door_open;
-	void	*img_player;
-	void	*img_wall;
-	void	*img_collectible;
-	void	*img_bg;
-	int		width_win;
-	int		height_win;
-	int		tile_size;
-	int		player_x;
-	int		player_y;
-	int		move_count;
-	int		input_locked;
-	t_map	*map;
-}			t_mlx;
-
 typedef struct s_keymap
 {
 	int	up;
@@ -85,17 +64,37 @@ typedef struct s_keymap
 	int	right;
 }	t_keymap;
 
+typedef struct s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			img_width;
+	int			img_height;
+	void		*img_door_closed;
+	void		*img_door_closed_player;
+	void		*img_door_open;
+	void		*img_player;
+	void		*img_wall;
+	void		*img_collectible;
+	void		*img_bg;
+	int			width_win;
+	int			height_win;
+	int			tile_size;
+	int			player_x;
+	int			player_y;
+	int			move_count;
+	int			input_locked;
+	t_keymap	keys;
+	t_map		*map;
+}				t_mlx;
 
 /* ****************************************************************************
 								  check.c
 **************************************************************************** */
 
-
 void	check_all_c_collected(char **map_copy, t_map *map);
 void	check_road_p_to_e(t_map *map);
 void	check_map(t_map *map);
-
-
 
 /* ****************************************************************************
 								  check2.c
@@ -115,7 +114,6 @@ void	error(char *msg);
 void	error_fd_open(char *msg, int fd, char *line, t_map *map);
 void	error_fd(char *msg, t_map *map);
 void	free_args_and_exit(t_map *map, char *msg);
-
 
 /* ****************************************************************************
 								  free.c

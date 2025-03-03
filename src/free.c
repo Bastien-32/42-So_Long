@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:46:28 by student           #+#    #+#             */
-/*   Updated: 2025/02/28 15:47:17 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 14:05:00 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_map(t_map *map)
 	int	i;
 
 	if (!map)
-		return;
+		return ;
 	if (map->line)
 	{
 		i = 0;

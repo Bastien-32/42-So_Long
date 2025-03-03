@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:50:36 by student           #+#    #+#             */
-/*   Updated: 2025/02/28 16:51:35 by student          ###   ########.fr       */
+/*   Updated: 2025/03/03 11:52:58 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	load_images_2(t_mlx *mlx)
 		error("Failed to load door closed player image!");
 }
 
-// Fonction pour charger une image XPM
 void	load_images(t_mlx *mlx)
 {
 	mlx->img_bg = mlx_xpm_file_to_image(mlx->mlx_ptr, \
@@ -52,11 +51,6 @@ void	load_images(t_mlx *mlx)
 
 void	put_img_to_win(t_mlx *mlx, t_map *map, int x, int y)
 {
-	if (!map || !map->line || !map->line[y] || x >= map->width || y >= map->height)
-	{
-		printf("Error: Invalid map access at (%d, %d)\n", x, y);
-		return;
-	}
 	if (map->line[y][x] == '1')
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \
 								mlx->img_wall, x * TILE_SIZE, y * TILE_SIZE);
